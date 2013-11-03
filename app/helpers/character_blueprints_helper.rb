@@ -1,0 +1,2 @@
+module CharacterBlueprintsHelper
+end

@@ -1,0 +1,2 @@
+class CharacterBlueprintsController < ApplicationController
+end
