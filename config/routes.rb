@@ -5,13 +5,15 @@ EveManager::Application.routes.draw do
 
   resources :items
 
-  resources :character_skills
-
   resources :character_blueprints
 
-  resources :characters
+  resources :characters do
+    resources :skills, controller: :character_skills, only: [:index, :update]
+  end
 
   resources :blueprints
+
+  root 'characters#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -53,7 +55,7 @@ EveManager::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'

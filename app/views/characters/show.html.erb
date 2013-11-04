@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<div class="information">
+<h2>
+  <%= @character.name %>
+</h2>
+<p><%= link_to 'skills', character_skills_path(@character) %></p>
+
+
+</div>
+
+<%= link_to 'Edit', edit_character_path(@character) %> |
+<%= link_to 'Back', characters_path %>
