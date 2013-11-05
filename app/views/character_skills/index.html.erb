@@ -1,4 +1,4 @@
-<h1>Listing Skills</h1>
+<h1>Listing Skills for <%= @skills.first.character.name%></h1>
 
 <table>
   <thead>
@@ -10,7 +10,7 @@
   <tbody>
     <% @skills.each do |skill| %>
       <tr>
-        <%= form_for skill, remote: true, url: character_skill_path(skill.character_id, skill.skill_id), method: :put do |f| %>
+        <%= form_for skill, url: character_skill_path(skill.character_id, skill.skill_id), method: :put do |f| %>
           <td><%= skill.skill_name %></td>
           <td><%= f.number_field :level, in: 0..5 %></td>
           <td><%= f.submit "Change" %></td>
@@ -21,3 +21,4 @@
 </table>
 
 <br>
+<%= link_to 'back', character_path(@skills.first.character_id)%>
