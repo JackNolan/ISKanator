@@ -5,10 +5,9 @@ EveManager::Application.routes.draw do
 
   resources :items
 
-  resources :character_blueprints
-
   resources :characters do
     resources :skills, controller: :character_skills, only: [:index, :update]
+    resources :blueprints, controller: :character_blueprints
   end
 
   resources :blueprints

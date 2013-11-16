@@ -1,7 +1,7 @@
 class CreateBlueprints < ActiveRecord::Migration
   def change
     create_table :blueprints do |t|
-      t.string :name
+      t.string  :name
       t.integer :eve_id
       t.integer :manufacturing_time
       t.integer :research_manufactoring_efficiency_time

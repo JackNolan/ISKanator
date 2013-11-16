@@ -12,4 +12,17 @@
  *= require_tree .
  */
 
- @import "bootstrap";
+@import "bootstrap";
+
+a {
+
+}
+
+ol {
+  list-style-type: none
+}
+
+label.label {
+  color: black;
+  width: 40%;
+}

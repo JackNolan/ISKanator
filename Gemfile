@@ -39,6 +39,10 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'pry'
+  gem 'vcr',     '~> 2.4.0'
+  gem 'webmock', '~> 1.10.0'
+  gem 'guard-rspec',        '~> 3.1.0'
+  gem 'terminal-notifier-guard'
 end
 
 # Use ActiveModel has_secure_password

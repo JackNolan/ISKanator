@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20131103232551) do
   create_table "character_blueprints", force: true do |t|
     t.integer  "blueprint_id"
     t.integer  "character_id"
-    t.integer  "material_level"
+    t.integer  "material_efficiency"
     t.integer  "production_efficiency"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -52,7 +52,8 @@ ActiveRecord::Schema.define(version: 20131103232551) do
   create_table "items", force: true do |t|
     t.string   "name"
     t.float    "m3"
-    t.integer  "price_cents"
+    t.integer  "sell_price_cents"
+    t.integer  "buy_price_cents"
     t.integer  "eve_id"
     t.datetime "created_at"
     t.datetime "updated_at"

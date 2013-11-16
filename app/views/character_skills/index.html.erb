@@ -1,4 +1,4 @@
-<h1>Listing Skills for <%= @skills.first.character.name%></h1>
+<h1>Listing Skills for <%= @character.name%></h1>
 
 <table>
   <thead>
@@ -21,4 +21,4 @@
 </table>
 
 <br>
-<%= link_to 'back', character_path(@skills.first.character_id)%>
+<%= link_to 'back', character_path(@character.id)%>

@@ -1,0 +1,11 @@
+<%= semantic_form_for @character_blueprint, url: character_blueprint_path(@character, @character_blueprint) do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :material_efficiency %>
+    <%= f.input :production_efficiency %>
+    <%= f.input :blueprint %>
+  <% end %>
+
+  <%= f.actions do %>
+    <%= f.action :submit, :button_html => { :value => "Add Blueprint", :class => "btn" } %>
+  <% end %>
+<% end %>

@@ -1,3 +1,16 @@
 // Place all the styles related to the character_blueprints controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+th {
+  padding-right: 12px
+}
+
+.loss {
+  background-color:rgba(255,0,0,0.5);
+}
+
+.gain {
+  background-color:rgba(0,255,0,0.5);
+}
