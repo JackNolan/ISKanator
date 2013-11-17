@@ -30,6 +30,8 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'formtastic'
 
+gem 'rest-client'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -37,12 +39,15 @@ end
 
 group :test, :development do
   gem 'rspec-rails'
-  gem 'shoulda-matchers'
   gem 'pry'
-  gem 'vcr',     '~> 2.4.0'
-  gem 'webmock', '~> 1.10.0'
   gem 'guard-rspec',        '~> 3.1.0'
   gem 'terminal-notifier-guard'
+end
+
+group :test do
+  gem 'vcr',     '~> 2.4.0'
+  gem 'webmock', '~> 1.10.0'
+  gem 'shoulda-matchers'
 end
 
 # Use ActiveModel has_secure_password

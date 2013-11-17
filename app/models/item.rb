@@ -24,7 +24,8 @@ class Item < ActiveRecord::Base
   end
 
   def update_prices
-    self.sell_price_cents = EveCentral.jita_sell_price_for(eve_id)
-    self.buy_price_cents  = EveCentral.jita_buy_price_for(eve_id)
+    prices = EveCentral.jita_price_for(eve_id)
+    self.sell_price_cents = prices[:sell_price_cents]
+    self.buy_price_cents  = prices[:buy_price_cents]
   end
 end

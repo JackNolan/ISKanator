@@ -14,10 +14,10 @@ describe Item do
     end
 
     it "sets sell_price_cents correctly" do
-      expect(item.sell_price_cents).to eq 3000
+      expect(item.sell_price_cents).to eq 172000000
     end
     it "sets buy_price_cents correctly" do
-      expect(item.buy_price_cents).to eq 3000
+      expect(item.buy_price_cents).to eq 161360005
     end
   end
 end

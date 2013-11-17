@@ -1,0 +1,54 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://api.eve-central.com/api/marketstat
+    body:
+      encoding: US-ASCII
+      string: typeid=11969&usesystem=30000142
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Length:
+      - '31'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.2.1
+      Date:
+      - Sun, 17 Nov 2013 08:44:11 GMT
+      Content-Type:
+      - text/xml; charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Encoding:
+      - gzip
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA42SyW6DMBCG73kKxIVTjfdFmjiPEtHgtqgsUXBQ8va1CaXO
+        cuicrH/+WT5rYHfp2mxyp7EZ+m1BEC4y1x+Guuk/t8XZf7zpYmc34CZ32FfH
+        ZrXmFOE865z/Gupt3lWnb+dHX/l96JfbTTYH/OkW/PXosiaYCTHSrJ7Z936+
+        WpiG9tw5KzSUyxOq6dMSLrU2ynBkBJRRCW0vlkjCJMZYIMWgjAp0TW8J5XgO
+        hHGQgwKjr2s3WcKYUiGLaPAvGnSubqpQxVWsUUvVTYSjOx1c75vWrdMY0hTK
+        JAFl3D1lGV3brjAkDruj0YxKoShGwiQ03CyBjElpgvE1jRQcG04o4vyZRmlj
+        9NrsBY0S0vAwE9FHmnn7FKdKabR8oJEKMyEJQVz9g4ZLyYxGnN2zBBRGFaZI
+        vmJR6Q88s2hCtMaEIy4eUKqUBMp4fzZus57k5pb4vW37A98Us64NAwAA
+    http_version: 
+  recorded_at: Sun, 17 Nov 2013 08:44:11 GMT
+recorded_with: VCR 2.4.0
