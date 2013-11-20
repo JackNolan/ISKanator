@@ -15,14 +15,6 @@ class Item < ActiveRecord::Base
     @buy_price_cents ||= 0
   end
 
-  def build_cost
-    0.0
-  end
-
-  def profit
-    sell_price - build_cost
-  end
-
   def update_prices
     prices = EveCentral.jita_price_for(eve_id)
     self.sell_price_cents = prices[:sell_price_cents]

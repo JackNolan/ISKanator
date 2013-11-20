@@ -6,7 +6,15 @@ class CharacterBlueprint < ActiveRecord::Base
     blueprint.try(:name)
   end
 
-  def produced_item
-    blueprint.try(:produced_item)
+  def build_cost
+    0.0
+  end
+
+  def profit
+    sell_price - build_cost
+  end
+
+  def profitable?(character_blueprint)
+    character_blueprint.produced_item.profit >= 0
   end
 end
