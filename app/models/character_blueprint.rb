@@ -4,7 +4,7 @@ class CharacterBlueprint < ActiveRecord::Base
 
   def bill_of_materials
     blueprint.materials.each do |material|
-      material.ammount = (material.ammount * charater_pe_discount * blueprint_me_waste).to_i
+      material.ammount = (material.ammount * (1 + skill_waste_percent + blueprint_waste_percent)).round(0)
     end
   end
 
@@ -25,17 +25,16 @@ class CharacterBlueprint < ActiveRecord::Base
   end
 
   private
-    def charater_pe_discount
-      (1 - character.production_efficiency_level * 0.05)
+    def skill_waste_percent
+      0.25 - character.production_efficiency_level * 0.05
     end
 
-    def blueprint_me_waste
+    def blueprint_waste_percent
       base = 10.0
-
       if material_efficiency >= 0
-        1 + (base / 100) * 1.0 / (material_efficiency + 1)
+        (base / 100) * 1.0 / (material_efficiency + 1)
       else
-        1 + (base / 100) * (1 - material_efficiency)
+        (base / 100) * (1 - material_efficiency)
       end
     end
 end
