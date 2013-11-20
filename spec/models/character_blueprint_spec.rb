@@ -24,9 +24,12 @@ describe CharacterBlueprint do
 
   describe ".bill_of_materials" do
     let(:first_material) { bill_of_materials.first }
-    it "contains all the materials" do
+
+    it "does not change the original material amounts" do
       character.stub(:production_efficiency_level).and_return(0)
-      expect(bill_of_materials).to match_array [material_one, material_two]
+      material_ammounts = blueprint.materials.collect(&:ammount)
+      character_blueprint.bill_of_materials
+      expect(blueprint.materials.collect(&:ammount)).to eq material_ammounts
     end
 
     context "accounting for player skills" do
