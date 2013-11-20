@@ -2,6 +2,12 @@ class CharacterBlueprint < ActiveRecord::Base
   belongs_to :character
   belongs_to :blueprint
 
+  def bill_of_materials
+    blueprint.materials.each do |material|
+      material.ammount = material.ammount * (1 - character.production_efficiency_level * 0.05)
+    end
+  end
+
   def blueprint_name
     blueprint.try(:name)
   end

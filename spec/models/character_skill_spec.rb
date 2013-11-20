@@ -29,4 +29,14 @@ describe CharacterSkill do
       expect(character_skills.collect(&:character_id)).to match_array 3.times.map { character.id }
     end
   end
+
+  describe ".production_efficiency" do
+    let(:character) { Character.create(name: 'nazol') }
+    let(:pe_skill)  { Skill.create(name: 'Production Efficiency') }
+    let!(:pe_character_skill) { CharacterSkill.create(character: character, skill: pe_skill) }
+
+    it "returns the character skills associated with production efficiency " do
+      expect(CharacterSkill.production_efficiency).to eq [pe_character_skill]
+    end
+  end
 end
