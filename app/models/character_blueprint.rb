@@ -5,7 +5,7 @@ class CharacterBlueprint < ActiveRecord::Base
   def bill_of_materials
     blueprint.materials.map do |material|
       mat = material.dup
-      mat.ammount = (material.ammount + material.ammount* skill_waste_percent + material.ammount * blueprint_waste_percent).round(0)
+      mat.amount = (material.amount + material.amount * skill_waste_percent + material.amount * blueprint_waste_percent).round(0)
       mat
     end
   end

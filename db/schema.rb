@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 20131103232551) do
   create_table "materials", force: true do |t|
     t.integer  "blueprint_id"
     t.integer  "item_id"
-    t.integer  "ammount"
+    t.integer  "amount"
     t.integer  "percent_consumed"
     t.string   "activity_type"
     t.datetime "created_at"

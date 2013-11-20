@@ -3,7 +3,7 @@ class CreateMaterials < ActiveRecord::Migration
     create_table :materials do |t|
       t.integer :blueprint_id
       t.integer :item_id
-      t.integer :ammount
+      t.integer :amount
       t.integer :percent_consumed
       t.string  :activity_type
 
