@@ -31,7 +31,7 @@ describe CsvImporter do
   end
 
   describe ".hashed_csv" do
-    let(:hashed_csv) { [{ 'header_one' => 'value_one', 'header_two' => 'value_two', 'header_three' => 'value_three' }] }
+    let(:hashed_csv) { [{ header_one: 'value_one', header_two: 'value_two', header_three: 'value_three' }] }
 
     it "returns the hashed version of csv" do
       expect(importer.hashed_csv).to eq hashed_csv
