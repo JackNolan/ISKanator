@@ -22,6 +22,9 @@ ActiveRecord::Schema.define(version: 20131103232551) do
     t.integer  "produced_item_id"
     t.integer  "price_cents"
     t.integer  "invention_time"
+    t.integer  "base_waste"
+    t.integer  "max_copies"
+    t.integer  "copy_time"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -65,12 +68,14 @@ ActiveRecord::Schema.define(version: 20131103232551) do
     t.integer  "amount"
     t.integer  "percent_consumed"
     t.string   "activity_type"
+    t.boolean  "extra"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "skills", force: true do |t|
     t.string   "name"
+    t.integer  "eve_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

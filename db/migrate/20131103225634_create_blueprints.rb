@@ -9,6 +9,9 @@ class CreateBlueprints < ActiveRecord::Migration
       t.integer :produced_item_id
       t.integer :price_cents
       t.integer :invention_time
+      t.integer :base_waste
+      t.integer :max_copies
+      t.integer :copy_time
 
       t.timestamps
     end

@@ -7,8 +7,8 @@ class CsvImporter
     @file_name = file_name
   end
 
-  def import!(dest_class)
-    hashed_csv.each do |row|
+  def import!(dest_class, &block)
+    hashed_csv(&block).each do |row|
       puts "Creating an #{dest_class.to_s} with params #{row}" unless Rails.env.test?
       dest_class.create(row)
     end
@@ -25,11 +25,17 @@ class CsvImporter
   def hashed_csv
     headers = csv.shift
     csv.map do |row|
-      headers.zip(row).each_with_object({}) do |(header, value), row_hash|
+      translated_hash = headers.zip(row).each_with_object({}) do |(header, value), row_hash|
         key   = header.encode('windows-1252', :replace => '').encode('UTF-8') # handle encoding issues between windows and mac
         value = value.encode('windows-1252', :replace => '').encode('UTF-8') # handle encoding issues between windows and mac
         row_hash[key.to_sym] = value
       end
-    end
+
+      if block_given?
+        translated_hash = yield translated_hash
+      end
+
+      translated_hash
+    end.compact
   end
 end

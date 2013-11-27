@@ -36,5 +36,13 @@ describe CsvImporter do
     it "returns the hashed version of csv" do
       expect(importer.hashed_csv).to eq hashed_csv
     end
+
+    it "accepts a block of transformations" do
+      expect(importer.hashed_csv{ |hash| hash[:foo] = 1; hash }.first).to include foo: 1
+    end
+
+    it "removes items that a pass block returns nil" do
+      expect(importer.hashed_csv{ |hash| nil }).to be_empty
+    end
   end
 end

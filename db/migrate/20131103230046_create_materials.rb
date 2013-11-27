@@ -6,6 +6,7 @@ class CreateMaterials < ActiveRecord::Migration
       t.integer :amount
       t.integer :percent_consumed
       t.string  :activity_type
+      t.boolean :extra
 
       t.timestamps
     end
