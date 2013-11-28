@@ -7,6 +7,14 @@ class Blueprint < ActiveRecord::Base
   has_many :character_blueprints
   has_many :characters, through: :character_blueprints
 
+  def require_materials
+    materials.where(extra: false)
+  end
+
+  def extra_materials
+    materials.where(extra: true)
+  end
+
   def produced_item_name
     produced_item.try(:name)
   end

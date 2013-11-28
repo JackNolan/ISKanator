@@ -8,7 +8,7 @@ describe CharacterBlueprint do
   let(:character)           { Character.new(name: "jack")                                        }
   let(:blueprint)           { Blueprint.new(name: "Dominix blueprint", materials: materials)}
   let(:material_one)        { Material.new(amount: first_material_amount, item: trit)                             }
-  let(:material_two)        { Material.new(amount: 600, item: ploy)                             }
+  let(:material_two)        { Material.new(amount: 600, item: ploy, extra: true)                 }
   let(:trit)                { Item.new(name: 'trit')                                             }
   let(:ploy)                { Item.new(name: 'ploy')                                             }
   let(:first_material_amount) { 4300840 }
@@ -19,7 +19,6 @@ describe CharacterBlueprint do
     it "returns the blueprints name" do
       expect(character_blueprint.blueprint_name).to eq "Dominix blueprint"
     end
-
   end
 
   describe ".bill_of_materials" do
@@ -66,6 +65,31 @@ describe CharacterBlueprint do
       it "behaves correctly at me -2" do
         character_blueprint.material_efficiency = -2
         expect(first_material.amount).to eq 5591092
+      end
+    end
+
+    context "extra materials" do
+      let(:extra_materials) { bill_of_materials.select{|mat| mat.extra} }
+      let(:extra_material)  { extra_materials.first }
+      it "contains the extra materials" do
+        character.stub(:production_efficiency_level).and_return(5)
+        expect(extra_materials).to_not be_empty
+      end
+
+      it "is not affected by skills" do
+        character.stub(:production_efficiency_level).and_return(5)
+        expect(extra_material.amount).to eq 600
+        character.stub(:production_efficiency_level).and_return(0)
+        expect(extra_material.amount).to eq 600
+      end
+
+      it "is not affected by me" do
+        character_blueprint.stub(skill_waste_percent: 0.0)
+
+        character_blueprint.material_efficiency = 0
+        expect(extra_material.amount).to eq 600
+        character_blueprint.material_efficiency = 900
+        expect(extra_material.amount).to eq 600
       end
     end
   end
