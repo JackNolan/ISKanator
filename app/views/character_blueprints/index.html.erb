@@ -20,9 +20,9 @@
         <td><%= link_to character_blueprint.blueprint_name, character_blueprint_path(@character, character_blueprint) %></td>
         <td><%= character_blueprint.material_efficiency %></td>
         <td><%= character_blueprint.production_efficiency %></td>
-        <td><%= character_blueprint.produced_item.build_cost %></td>
-        <td><%= character_blueprint.produced_item.sell_price %></td>
-        <td class=<%= profitable?(character_blueprint) ? 'loss' : 'gain'%>><%= character_blueprint.produced_item.profit %></td>
+        <td><%= number_to_currency character_blueprint.build_cost %></td>
+        <td><%= number_to_currency character_blueprint.sell_price %></td>
+        <td class=<%= character_blueprint.profitable? ? 'loss' : 'gain'%>><%= number_to_currency character_blueprint.profit %></td>
         <td><%= link_to 'Edit', edit_character_blueprint_path(@character, character_blueprint) %></td>
         <td><%= link_to 'Remove', character_blueprint_path(@character, character_blueprint), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

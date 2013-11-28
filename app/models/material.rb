@@ -4,6 +4,10 @@ class Material < ActiveRecord::Base
 
   after_initialize :set_defaults
 
+  def item_name
+    item.try(:name)
+  end
+
   private
     def set_defaults
       self.extra ||= false

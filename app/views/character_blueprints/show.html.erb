@@ -2,5 +2,39 @@
 
 <p><%= @character_blueprint.blueprint_name %></p>
 
+<p>ME: <%= @character_blueprint.material_efficiency%> </p>
+<p>PE: <%= @character_blueprint.production_efficiency%> </p>
+
+<h3>Totals</h3>
+<table>
+  <% @character_blueprint.compacted_bill_of_materials.each do |material| %>
+    <tr>
+      <td><%= material.item_name %></td>
+      <td><%= material.amount %></td>
+    </tr>
+  <% end %>
+</table>
+
+<h4>Materials</h4>
+<table>
+  <% @character_blueprint.required_materials.each do |material| %>
+    <tr>
+      <td><%= material.item_name %></td>
+      <td><%= material.amount %></td>
+    </tr>
+  <% end %>
+</table>
+
+<h4>Extra Materials</h4>
+<table>
+  <% @character_blueprint.extra_materials.each do |material| %>
+    <tr>
+      <td><%= material.item_name %></td>
+      <td><%= material.amount %></td>
+    </tr>
+  <% end %>
+</table>
+
+
 <%= link_to 'Edit', edit_character_blueprint_path(@character, @character_blueprint) %>
 <%= link_to 'Back', character_blueprints_path %>

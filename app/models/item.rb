@@ -7,7 +7,7 @@ class Item < ActiveRecord::Base
   after_initialize :set_defaults
 
   def sell_price
-    (sell_price_cents / 100.0).round(2)
+    (sell_price_cents || 0 / 100.0).round(2)
   end
 
   def set_defaults
