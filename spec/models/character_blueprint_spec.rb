@@ -21,6 +21,20 @@ describe CharacterBlueprint do
     end
   end
 
+  describe ".extra_materials" do
+    it "returns only extra materials" do
+      character.stub(:production_efficiency_level).and_return(0)
+      expect(character_blueprint.extra_materials.select{|mat| mat.extra? }).to eq character_blueprint.extra_materials
+    end
+  end
+
+  describe ".required_materials" do
+    it "returns only required materials" do
+      character.stub(:production_efficiency_level).and_return(0)
+      expect(character_blueprint.required_materials.reject{|mat| mat.extra? }).to eq character_blueprint.required_materials
+    end
+  end
+
   describe ".bill_of_materials" do
     let(:first_material) { bill_of_materials.first }
 
