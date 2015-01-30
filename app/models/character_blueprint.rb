@@ -39,7 +39,7 @@ class CharacterBlueprint < ActiveRecord::Base
   end
 
   def build_cost
-    0.0
+    required_materials.inject(0) {|total, mat| total += (mat.item.buy_price_cents * mat.amount); total }
   end
 
   def sell_price
